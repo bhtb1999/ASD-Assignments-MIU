@@ -1,0 +1,55 @@
+type AddressResponse {
+    id: ID
+    city: String
+    street: String
+    houseNumber: Int
+}
+
+type PatientSummaryResponse {
+    id: ID
+    firstName: String
+    lastName: String
+    age: Int
+}
+
+type PatientResponse {
+    id: ID
+    firstName: String
+    lastName: String
+    age: Int
+    primaryAddress: AddressResponse
+}
+
+type AddressWithPatientsResponse {
+    id: ID
+    city: String
+    street: String
+    houseNumber: Int
+    patients: [PatientSummaryResponse]
+}
+
+input NewAddress {
+    city: String!
+    street: String!
+    houseNumber: Int!
+}
+
+input NewPatient {
+    firstName: String!
+    lastName: String!
+    age: Int!
+    primaryAddress: NewAddress!
+}
+
+type Query {
+    allPatients: [PatientResponse!]!
+    patientById(patientId: ID!): PatientResponse
+    searchPatients(searchString: String!): [PatientResponse!]!
+    allAddresses: [AddressWithPatientsResponse!]!
+}
+
+type Mutation {
+    addNewPatient(newPatient: NewPatient!): PatientResponse
+    updatePatient(patientId: ID!, newPatient: NewPatient!): PatientResponse
+    deletePatient(patientId: ID!): Boolean!
+}

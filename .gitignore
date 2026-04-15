@@ -1,1 +1,5 @@
-/lesson7-rest-webapi
+.DS_Store
+**/.DS_Store
+
+.idea/
+*.iml
