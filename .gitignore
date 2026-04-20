@@ -1,5 +1,40 @@
 .DS_Store
 **/.DS_Store
 
+# Java / Maven / Gradle build output
+target/
+build/
+out/
+.gradle/
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+
+# Environment / local overrides
+.env
+.env.*
+*.local
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+hs_err_pid*
+replay_pid*
+
+# IDE files
 .idea/
 *.iml
+.vscode/
+.project
+.classpath
+.settings/
+.factorypath
+nbproject/private/
+nbbuild/
+nbdist/
+dist/
